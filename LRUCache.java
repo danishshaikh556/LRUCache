@@ -91,12 +91,15 @@ public class LRUCache{
     private static void get(String string, HashMap<String, LRUCache> entries,ArrayList<LRUCache>heap,
 		long count, int heapSize) {
 	    
-	      LRUCache dummy = entries.get(string);
-		  dummy.setLruNum(count);
-		  System.out.println(dummy.getValue());
-		  int index = heap.indexOf(dummy);
-		  minHeapify(index,heap.size(),heap);
-		 }
+    	 if(entries.containsKey(string))
+    			 {
+    		 		LRUCache dummy = entries.get(string);
+    		 		dummy.setLruNum(count);
+    		 		System.out.println(dummy.getValue());
+    		 		int index = heap.indexOf(dummy);
+    		 		minHeapify(index,heap.size(),heap);
+    			  }else System.out.println("NULL");
+    }
 
     public static void minHeapify(int i,int heapsize,ArrayList<LRUCache>Q)
     {
