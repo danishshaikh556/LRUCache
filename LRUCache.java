@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.TreeMap;
 
 public class LRUCache{
 	private String    key;
@@ -131,11 +133,11 @@ public class LRUCache{
     	}
     }
     private static void dump(HashMap<String,LRUCache> entries) {
-	
-    	Iterator itr = entries.keySet().iterator();
+	    Map<String,LRUCache> tree = new TreeMap<String,LRUCache>(entries);
+    	Iterator itr = tree.keySet().iterator();
     	while(itr.hasNext())
     	{
-    		LRUCache toDump = entries.get(itr.next());
+    		LRUCache toDump = tree.get(itr.next());
     		System.out.println(toDump.getKey() + " " + toDump.getValue() );
     	}
     }
