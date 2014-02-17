@@ -1,8 +1,10 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
@@ -154,7 +156,7 @@ public class LRUCache{
 
 
     
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
                         {
                             //COunts LRU number
                          long count    = 0;
@@ -165,16 +167,17 @@ public class LRUCache{
                             //Hashtbale to get and remove entries
                          HashMap<String,LRUCache> entries= new HashMap<String,LRUCache>();
                            
-                         Scanner in    = new Scanner(System.in);
-                         int  inputNum = in.nextInt();
+                         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                         String line = br.readLine();
+                         int  inputNum = Integer.parseInt(line);
                          
                          //Array of Commands
                          String[] commandArray = new String[inputNum];
-                         String dbx =in.nextLine();
+                       //  String dbx =br.readLine();
                             
                          for(int i=0;i<inputNum;i++)
                            {
-                               commandArray[i]   = in.nextLine();
+                               commandArray[i]   = br.readLine();
                            }
                          
                          for(int i=0;i<inputNum;i++)
